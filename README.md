@@ -9,7 +9,7 @@ You can directly create a new GitHub repo from this template by selecting the **
 You can also clone it locally with the following commands:
 
 ```bash
-npx degit sinedied/svelte-web-component-template my-component-lib
+npx degit sinedied/svelte-web-components-template#main my-component-lib
 cd my-component-lib
 npm install # or yarn
 ```
