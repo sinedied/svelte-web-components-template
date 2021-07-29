@@ -80,3 +80,20 @@ Here's an example:
   Click to dispatch event
 </button>
 ```
+
+## Building each component into its own module
+
+By default this template will build all components into a single module.
+
+If you prefer to build each component into its own module, you can do so by editing `rollup.config.js` and setting the `bundleComponents` option to `false`.
+
+Then you also need to replace the content of `lib/index.js` with:
+
+```js
+export default () => {
+  import('./MyComponent.wc.svelte');
+  // Import each of your component this way
+};
+```
+
+This will enable code-splitting and will generate an ES module for each component in the `dist/` folder.
