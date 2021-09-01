@@ -36,7 +36,7 @@ If you want to add unit tests, you can take a look at [Jest](https://jestjs.io) 
 
 The demo application is provided for development and testing of your components, that's why it imports the `.svelte` files from the `lib/` folder directly by default.
 
-If you prefer, you can import the built web components from the `dist/` folder instead, by editing `demo/index.js` and replacing the `import '../../lib';` statement with `import '../../dist';` if you have the `bundleComponents` option enabled, or individually import your components with `import import '../../dist/MyComponent.wc.js';` otherwise.
+If you prefer, you can import the built web components from the `dist/` folder instead, by editing `demo/src/App.svelte` and replacing the `import '../../lib';` statement with `import '../../dist';` if you have the `bundleComponents` option enabled, or individually import your components with `import import '../../dist/MyComponent.wc.js';` otherwise.
 
 You'll also have to make sure to run the `npm run build` script to generate the `dist/` folder first.
 
@@ -106,4 +106,4 @@ export default () => {
 
 This will enable code-splitting and will generate an ES module for each component in the `dist/` folder.
 
-As you changed the way components are exported, you also need to replace the `import '../../lib';` statement in `demo/index.js` to `import import '../../lib/MyComponent.wc.svelte';`.
+As you changed the way components are exported, you also need to replace the `import '../../lib';` statement in `demo/src/App.svelte` to `import import '../../lib/MyComponent.wc.svelte';`.
