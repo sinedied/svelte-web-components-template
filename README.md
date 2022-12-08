@@ -2,6 +2,8 @@
 
 > A base template for building a shareable web components library using [Vite](https://vitejs.dev), [Svelte](https://svelte.dev) and [TypeScript](https://www.typescriptlang.org).
 
+This templates generates vanilla [web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) than can be used with [plain HTML](https://www.webcomponents.org/introduction#how-do-i-use-a-web-component-) or within any major frameworks, such as React, Angular, Vue or Svelte (see [compatibility](https://custom-elements-everywhere.com/)).
+
 ## How to use this template
 
 You can directly create a new GitHub repo from this template by selecting the **Use this template** button on GitHub.
@@ -62,9 +64,9 @@ Any props accepted by your web component are automatically transformed to elemen
 
 ### Events
 
-The Svelte syntax event for listening to events like `on:myevent` doesnt work with events dispatched from a Svelte web component ([#3119](https://github.com/sveltejs/svelte/issues/3119)).
+The Svelte syntax event for listening to events like `on:myevent` doesn't work with events dispatched from a Svelte web component ([#3119](https://github.com/sveltejs/svelte/issues/3119)).
 
-You need to use a workaround for that, by creating a `CustomEvent` and dispatching it with the `composed: true` option to cross the shadow DOM boundary.
+You need to use a workaround for that, by creating a `CustomEvent` and dispatching it.
 
 Here's an example:
 
@@ -73,16 +75,11 @@ Here's an example:
 <svelte:options tag="my-component" />
 <script>
   import { get_current_component } from "svelte/internal";
-  
   const component = get_current_component();
   
   // example function for dispatching events
-  const dispatchEvent = (name, detail) => {
-    component?.dispatchEvent(new CustomEvent(name, {
-      detail,
-      composed: true  // propagate across the shadow DOM
-    }));
-  };
+  const dispatchEvent = (name, detail) =>
+    component.dispatchEvent(new CustomEvent(name, { detail }));
 </script>
 <button on:click={() => dispatchEvent("test", "Hello!")}>
   Click to dispatch event
