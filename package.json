@@ -3,8 +3,8 @@
   "description": "A base template for building a shareable web components library with Vite + Svelte",
   "version": "0.0.0",
   "type": "module",
-  "module": "dist/lib/index.js",
-  "main": "dist/lib/index.umd.js",
+  "module": "dist/lib/my-library.js",
+  "main": "dist/lib/my-library.umd.js",
   "scripts": {
     "start": "npm run dev -s",
     "dev": "vite --config vite.demo.config.ts",
