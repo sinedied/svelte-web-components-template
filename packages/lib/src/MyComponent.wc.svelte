@@ -1,6 +1,6 @@
 <svelte:options tag="my-component"/>
 
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
 
   let time = new Date();

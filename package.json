@@ -1,36 +1,30 @@
 {
-  "name": "svelte-web-components-template",
-  "description": "A base template for building a shareable web components library with Svelte",
-  "version": "1.0.0",
-  "module": "dist/index.mjs",
-  "main": "dist/index.js",
-  "keywords": [
-    "svelte",
-    "web-components",
-    "library"
-  ],
+  "name": "my-library",
+  "description": "A base template for building a shareable web components library with Vite + Svelte",
+  "version": "0.0.0",
+  "type": "module",
+  "module": "dist/lib/index.js",
+  "main": "dist/lib/index.umd.js",
   "scripts": {
-    "build": "rollup -c",
-    "build:demo": "rollup -c rollup.demo.config.js",
-    "dev": "rollup -c rollup.demo.config.js -w",
-    "start": "sirv demo/public",
-    "prepublishOnly": "npm run build"
+    "start": "npm run dev -s",
+    "dev": "vite --config vite.demo.config.ts",
+    "build": "vite build",
+    "build:demo": "vite build --config vite.demo.config.ts",
+    "preview": "vite preview --config vite.demo.config.ts",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "prepublishOnly": "npm run build -s"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^23.0.4",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "rollup": "^2.79.1",
-    "rollup-plugin-clean": "^1.0.0",
-    "rollup-plugin-css-only": "^4.3.0",
-    "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-summary": "^1.4.3",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "sirv-cli": "^2.0.2",
-    "svelte": "^3.0.0"
+    "@sveltejs/vite-plugin-svelte": "^1.1.0",
+    "@tsconfig/svelte": "^3.0.0",
+    "svelte": "^3.52.0",
+    "svelte-check": "^2.9.2",
+    "svelte-preprocess": "^4.10.7",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3"
   },
   "files": [
-    "dist"
+    "dist/lib"
   ]
 }
