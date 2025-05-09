@@ -38,6 +38,11 @@ export default defineConfig({
     }),
     svelte({
       include: /\.wc\.svelte$/ as any,
+      experimental: {
+        compileModule: {
+          infixes: ['.wcsvelte.'],
+        }
+      }
     }),
     minifyEs()
   ]

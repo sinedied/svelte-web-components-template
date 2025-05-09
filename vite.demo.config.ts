@@ -21,6 +21,11 @@ export default defineConfig({
       hot: false,
       compilerOptions: {
         customElement: true
+      },
+      experimental: {
+        compileModule: {
+          infixes: ['.wcsvelte.'],
+        }
       }
     })
   ]
